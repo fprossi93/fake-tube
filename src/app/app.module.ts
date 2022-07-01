@@ -12,6 +12,7 @@ import { VideoListComponent } from './pages/private/home/video-list/video-list.c
 import { VideoItemComponent } from './pages/private/home/video-item/video-item.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
