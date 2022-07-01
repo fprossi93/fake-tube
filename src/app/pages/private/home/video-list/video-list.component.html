@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row pt-5" *ngIf="show">
+    <div class="col-12 col-md-3 mb-3" *ngFor="let video of videos">
+      <app-video-item [itemValue]="video"></app-video-item>
+    </div>
+  </div>
+</div>

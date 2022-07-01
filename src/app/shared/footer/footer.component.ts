@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,24 +7,23 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  @Output() clickCustom:EventEmitter<any> = new EventEmitter();
-  isChangedTitle:boolean = false;
-  label = ''
+  @Output()
+  clickCustom: EventEmitter<any> = new EventEmitter();
+  public isChangeTitle: boolean = false;
+  public lable: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick() {
-    this.setTitle();
-    this.clickCustom.emit({label_emit: this.label});
+  onClick(){
+    this.setTilte();
+    this.clickCustom.emit({label: this.lable});
   }
 
-  private setTitle(){
-    this.isChangedTitle = !this.isChangedTitle;
-    this.label = this.isChangedTitle ? 'title from footer to navbar' : 'gpitube';
-
+  private setTilte(){
+    this.isChangeTitle = !this.isChangeTitle;
+    this.lable = this.isChangeTitle? 'Title form footer to navbar' : 'FakeTube'
   }
-
 }

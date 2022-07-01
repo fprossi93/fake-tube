@@ -7,18 +7,27 @@ import { AppComponent } from './app.component';
 import { EsercizioComponent } from './pages/private/esercizio/esercizio.component';
 import { FiglioComponent } from './pages/private/esercizio/figlio/figlio.component';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './pages/private/home/home.component';
+import { VideoListComponent } from './pages/private/home/video-list/video-list.component';
+import { VideoItemComponent } from './pages/private/home/video-item/video-item.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     EsercizioComponent,
-    FiglioComponent
+    FiglioComponent,
+    HomeComponent,
+    VideoListComponent,
+    VideoItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

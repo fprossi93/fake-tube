@@ -1,13 +1,7 @@
 <div class="container">
-    <p>{{ title }} - {{valueChild}}</p>
-    <img [src]="image" />
-    <button (click)="printToConsole()" class="btn btn-primary">clicca</button>
+  <p>{{title}}</p>
+  <img  [src]="image" class="content">
+  <input type="text" [(ngModel)]="title">
+  <app-figlio [getTitle]="title" (emissione)="eventEmit($event)"></app-figlio>
 
-    <input type="text" [(ngModel)]="title" />
-
-    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-    Tooltip on top
-    </button>
-
-    <app-figlio [titlefiglio]="title" (emitValue)="getValueFromChild($event)"></app-figlio>
 </div>
