@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fake-tube';
+  title = 'gpitube';
+  customTitle = '';
+
+  onClickCustom(event: {label_emit:string}) {
+
+    console.log(event.label_emit);
+    this.customTitle = event.label_emit;
+  }
 }
