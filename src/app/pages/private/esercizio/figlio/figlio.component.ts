@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-figlio',
@@ -6,16 +6,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./figlio.component.scss']
 })
 export class FiglioComponent implements OnInit {
+  @Input()
+  getTitle: any;
 
-  @Input() titlefiglio = "titolo figlio";  
-  @Output() emitValue:EventEmitter<any> = new EventEmitter();  
+
+  @Output()
+  emissione: EventEmitter<any> =new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  sendValue() {
-    this.emitValue.emit("Invio valore da figlio a padre")
+  sendValue(){
+    this.emissione.emit(this.getTitle);
   }
-
 }
