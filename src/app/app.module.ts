@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EsercizioComponent } from './pages/private/esercizio/esercizio.component';
 import { FiglioComponent } from './pages/private/esercizio/figlio/figlio.component';
 import { SharedModule } from './shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
