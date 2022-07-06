@@ -26,4 +26,8 @@ export class FakeTubeService {
   private fetchVideos(queryParams: any){
     return this.apiService.getService(`videos?${queryParams}`).pipe(map((res: any) => new VideoListModel(res)))
   }
+
+  private fetchVideoPromise(queryParams: any){
+    return this.apiService.getService(`videos?${queryParams}`).pipe(map((res: any) => new VideoListModel(res)))
+  }
 }
