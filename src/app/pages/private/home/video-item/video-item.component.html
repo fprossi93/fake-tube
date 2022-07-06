@@ -1,8 +1,9 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card" (click)="goToVideoDetail()">
+  <img [src]="video.imagePreview" class="card-img-top" >
+  <div class="px-3 pt-2 text-end"><small>{{video.publishedAt | date:'yy/MM//dd'}}</small></div>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">{{video.title| truncate : {end: 10, dots:true} }}</h5>
+    <p class="card-text">{{video.description | truncate : {end: 30, dots:true} }}</p>
   </div>
   <app-custom-button (watchLater)="watchLater($event)"  [itemValue]="itemValue">Watch Later</app-custom-button>
 </div>

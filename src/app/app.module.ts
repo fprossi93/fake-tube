@@ -10,7 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/private/home/home.component';
 import { VideoListComponent } from './pages/private/home/video-list/video-list.component';
 import { VideoItemComponent } from './pages/private/home/video-item/video-item.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 

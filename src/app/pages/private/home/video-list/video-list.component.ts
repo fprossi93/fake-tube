@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { VideoListModel } from 'src/app/models/video-list.model';
+import { VideoModel } from 'src/app/models/video.model';
 
 @Component({
   selector: 'app-video-list',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
 
-  videos: string[] = ['1','2','3','4','5'];
+  @Input()
+  videos: VideoModel[]=[];
+
   show: boolean = true;
 
   constructor() { }
