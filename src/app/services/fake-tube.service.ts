@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { lastValueFrom, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { VideoListModel } from '../models/video-list.model';
-import { ApiServicesService } from './api-services.service';
+import { VideoCommentList } from '../models/video-comment-list.model';
+import { VideoList } from '../models/video-list.model';
+import { ApiService } from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FakeTubeService {
+  constructor(private readonly apiService: ApiService) {}
 
-  constructor(private readonly apiService: ApiServicesService) { }
-
-  getVideos(){
+  getVideos() {
     const queryParams: string = [
       `chart=mostPopular`,
       `regionCode=IT`,
@@ -23,11 +23,31 @@ export class FakeTubeService {
     return this.fetchVideos(queryParams);
   }
 
-  private fetchVideos(queryParams: any){
-    return this.apiService.getService(`videos?${queryParams}`).pipe(map((res: any) => new VideoListModel(res)))
+  getVideo(videoId: string) {
+    const queryParams: string = [`id=${videoId}`, `part=snippet,contentDetails,statistics`, `maxResults=1`, `key=${environment.API_KEY}`].join('&');
+
+    return this.fetchVideos(queryParams);
   }
 
-  private fetchVideoPromise(queryParams: any){
-    return this.apiService.getService(`videos?${queryParams}`).pipe(map((res: any) => new VideoListModel(res)))
+  getComments(videoId: string) {
+    const queryParams: string = [`videoId=${videoId}`, `part=id,replies,snippet`, `maxResults=10`, `key=${environment.API_KEY}`].join('&');
+
+    return this.apiService.get(`commentThreads?${queryParams}`).pipe(map((comments: any) => new VideoCommentList(comments.items)));
+  }
+
+  getRelatedVideos(videoId: string) {
+    const queryParams: string = [`part=snippet`, `type=video`, `relatedToVideoId=${videoId}`, `maxResults=20`, `key=${environment.API_KEY}`].join(
+      '&'
+    );
+
+    return this.apiService.get(`search?${queryParams}`).pipe(map((videoList: any) => new VideoList(videoList)));
+  }
+
+  private fetchVideos(queryParams: string) {
+    return this.apiService.get(`videos?${queryParams}`).pipe(map((videoList: any) => new VideoList(videoList)));
+  }
+
+  private fetchVideosPromise(queryParams: string) {
+    return lastValueFrom(this.apiService.get(`videos?${queryParams}`).pipe(map((videoList: any) => new VideoList(videoList))));
   }
 }

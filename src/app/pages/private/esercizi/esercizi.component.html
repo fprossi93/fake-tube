@@ -1,0 +1,7 @@
+<div class="container">
+  <h3>{{title}} - {{valueChild}}</h3>
+  <img [src]="img">
+  <input type="text" [(ngModel)]="title">
+  <button class="btn btn-primary" (click)="printToConsole()">BTN</button>
+  <app-figlio [title]="title" (emitValue)="getValueFromChild($event)"></app-figlio>
+</div>

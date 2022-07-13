@@ -3,23 +3,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-custom-button',
   templateUrl: './custom-button.component.html',
-  styleUrls: ['./custom-button.component.scss']
+  styleUrls: ['./custom-button.component.scss'],
 })
 export class CustomButtonComponent implements OnInit {
+  @Output() watchLater: EventEmitter<string> = new EventEmitter();
+  @Input() itemValue: string = '';
 
-  @Output()
-  watchLater: EventEmitter<any> = new EventEmitter();
+  constructor() {}
 
-  @Input()
-  itemValue: string = '';
+  ngOnInit(): void {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  pushWatchLater(item: string){
+  pushWatchLater(item: string) {
     this.watchLater.emit(item);
   }
-
 }

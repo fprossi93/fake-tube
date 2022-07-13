@@ -1,1 +1,14 @@
-<p>watch works!</p>
+<div class="container d-flex flex-column h-100">
+  <div class="col-12 d-flex align-items-center">
+    <i class="bi bi-arrow-left-circle-fill"></i>
+  </div>
+  <div class="row">
+    <div class="col-8 h-100 overflow-auto">
+      <app-video-frame *ngIf="currentVideo" [currentVideo]="currentVideo"></app-video-frame>
+      <app-comments *ngIf="currentComments" [currentComments]="currentComments"></app-comments>
+    </div>
+    <div class="col-4 h-100 overflow-auto">
+      <app-related [currentRelatedVideos]="currentRelatedVideos"></app-related>
+    </div>
+  </div>
+</div>

@@ -6,12 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fake-tube';
+  title = 'corsotube';
+  customTitle = '';
 
-  customTitle ='';
-
-  onClickCustom(event: {label: string}){
-    console.log(event)
-    this.customTitle = event.label;
+  onClickCustom(event: { labelEmit: string }) {
+    this.customTitle = event.labelEmit;
   }
+
 }
