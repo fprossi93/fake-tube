@@ -2,14 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WatchComponent } from './watch.component';
 
-const routes: Routes = [
-  {
-    path:':videoId', component: WatchComponent
-  }
-];
+const routes: Routes = [{ path: ':videoId', component: WatchComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WatchRoutingModule { }
+export class WatchRoutingModule {}

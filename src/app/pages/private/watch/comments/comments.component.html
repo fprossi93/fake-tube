@@ -1,0 +1,22 @@
+<div class="card mb-3" *ngFor="let comment of currentComments; index as i" [ngClass]="{ 'bg-light': i % 2 === 0 }">
+  <div class="row g-0">
+    <div class="col-md-2">
+      <img [src]="comment.authorProfileImageUrl" class="img-fluid rounded-circle w-100" alt="..." />
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h5 class="card-title">{{ comment.authorDisplayName }}</h5>
+          <span>{{ comment.publishedAt | date: 'MMM d EEEE' }}</span>
+        </div>
+        <p class="card-text">
+          {{ comment.textDisplay }}
+        </p>
+        <p class="card-text">
+          <i class="bi bi-hand-thumbs-up"></i>
+          <small class="text-muted">{{ comment.likes }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,22 +4,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
-
 export class NavbarComponent implements OnInit {
+  @Input() customTitle: string = '';
 
-  @Input()
-  customTitle = "";
-
-  constructor(private readonly route: Router) { }
+  constructor(public readonly route: Router) {}
 
   ngOnInit(): void {
-    this.customTitle = 'FakeTube'
+    this.customTitle = 'TITLE on INIT';
   }
 
-  goToEsercizi(){
+  goToEsercizi() {
     this.route.navigate(['private', 'esercizi']);
   }
-
 }

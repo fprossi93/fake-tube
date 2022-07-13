@@ -1,21 +1,21 @@
-import { VideoModel } from "./video.model";
+import { Video } from './video.model';
 
-export interface IVideolistFromWs{
+export interface IVideoListFromWs {
   etag: string;
   items: any[];
   kind: string;
   nextPageToken: string;
-  pageInfo: {totalResults: number, resultsPerPage: number}
+  pageInfo: { totalResults: number; resultsPerPage: number };
 }
 
-export class VideoListModel {
-  videoList : any[] = [];
+export class VideoList {
+  videoList: any[] = [];
 
-  constructor(configObj: IVideolistFromWs){
+  constructor(configObj: IVideoListFromWs) {
     this.videoList = this.typeVideo(configObj.items);
   }
 
-  private typeVideo(items: any[]){
-    return items.map(item => new VideoModel(item));
+  private typeVideo(items: any[]) {
+    return items.map((item) => new Video(item));
   }
 }

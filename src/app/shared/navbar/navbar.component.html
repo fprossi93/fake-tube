@@ -1,7 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand">{{customTitle}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">{{ customTitle }}</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -11,12 +19,10 @@
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" [routerLink]="['private', 'esercizi']">Esercizi</a> -->
-          <button class="nav-link btn" (click)="goToEsercizi()">Esercizi</button>
-          <!-- <a class="nav-link active" aria-current="page" (click)="goToEsercizi()">Esercizi</a> -->
+          <span class="nav-link" (click)="goToEsercizi()">Esercizi</span>
         </li>
-
         <!-- <li class="nav-item">
-          <a class="nav-link">Pricing</a>
+          <a class="nav-link" >Pricing</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>

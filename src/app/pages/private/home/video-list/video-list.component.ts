@@ -1,22 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { VideoListModel } from 'src/app/models/video-list.model';
-import { VideoModel } from 'src/app/models/video.model';
+import { Video } from 'src/app/models/video.model';
 
 @Component({
   selector: 'app-video-list',
   templateUrl: './video-list.component.html',
-  styleUrls: ['./video-list.component.scss']
+  styleUrls: ['./video-list.component.scss'],
 })
 export class VideoListComponent implements OnInit {
-
-  @Input()
-  videos: VideoModel[]=[];
-
+  @Input() videos: Video[] = [];
   show: boolean = true;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

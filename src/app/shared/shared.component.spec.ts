@@ -11,9 +11,7 @@ describe('SharedComponent', () => {
       declarations: [ SharedComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SharedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

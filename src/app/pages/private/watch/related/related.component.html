@@ -1,0 +1,14 @@
+<div
+  class="d-flex mb-3 p-1"
+  *ngFor="let related of currentRelatedVideos; index as i"
+  [ngClass]="{ 'bg-light': i % 2 === 0 }"
+  (click)="navigateWatch(related.videoId)"
+>
+  <div class="w-100 d-flex align-items-center pe-2">
+    <img [src]="related.imagePreview" class="w-100" />
+  </div>
+  <div class="d-flex flex-column">
+    <p class="m-0">{{ related.title }}</p>
+    <p class="m-0">{{ related.description | truncate: { end: 20, dots: true } }}</p>
+  </div>
+</div>

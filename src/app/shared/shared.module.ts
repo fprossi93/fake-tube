@@ -6,16 +6,17 @@ import { FooterComponent } from './footer/footer.component';
 import { CustomButtonComponent } from './custom-button/custom-button.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { RouterModule } from '@angular/router';
-
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const COMPONENTS = [SharedComponent, NavbarComponent, FooterComponent, CustomButtonComponent];
+
+const MODULES = [CommonModule, RouterModule];
+
 const PIPES = [TruncatePipe];
-const MODULE = [CommonModule, RouterModule];
+
 @NgModule({
-  declarations: [...COMPONENTS, ...PIPES],
-  imports: [
-    ...MODULE
-  ],
-  exports:[...COMPONENTS, ...PIPES]
+  declarations: [...COMPONENTS, ...PIPES, NotFoundComponent],
+  imports: [...MODULES],
+  exports: [...COMPONENTS, ...PIPES],
 })
-export class SharedModule { }
+export class SharedModule {}

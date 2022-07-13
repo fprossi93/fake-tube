@@ -1,9 +1,12 @@
 <div class="card" (click)="goToVideoDetail()">
-  <img [src]="video.imagePreview" class="card-img-top" >
-  <div class="px-3 pt-2 text-end"><small>{{video.publishedAt | date:'yy/MM//dd'}}</small></div>
-  <div class="card-body">
-    <h5 class="card-title">{{video.title| truncate : {end: 10, dots:true} }}</h5>
-    <p class="card-text">{{video.description | truncate : {end: 30, dots:true} }}</p>
+  <img [src]="video.imagePreview" class="card-img-top" alt="..." />
+  <div class="px-3 pt-2 text-end">
+    <small>{{ video.publishedAt | date: 'yyyy/MMMM/dd' | uppercase }}</small>
   </div>
-  <app-custom-button (watchLater)="watchLater($event)"  [itemValue]="itemValue">Watch Later</app-custom-button>
+  <div class="card-body">
+    <h5 class="card-title">{{ video.title | truncate: { end: 20, dots: true } }}</h5>
+    <p class="card-text">{{ video.description | truncate: { end: 30, dots: true } }}</p>
+    <app-custom-button (watchLater)="watchLater($event)" [itemValue]="itemValue">Watch later</app-custom-button>
+  </div>
 </div>
+<pre>{{ video | json }}</pre>
